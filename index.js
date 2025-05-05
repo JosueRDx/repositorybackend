@@ -1,8 +1,10 @@
 require('dotenv').config();          // Carga las variables del archivo .env
 const http = require('http');        // Importa el módulo nativo HTTP
 
-function requestController() {       // Función que se ejecutará al recibir una solicitud
+function requestController(req, res) {       // Función que se ejecutará al recibir una solicitud
   console.log('Bienvenidos al curso');
+  res.writeHead(200, { 'Content-Type': 'text/html' });
+  res.end('<h1>Aplicacion desplegada correctamente</h1>');
 }
 
 const server = http.createServer(requestController);  // Crea el servidor HTTP
